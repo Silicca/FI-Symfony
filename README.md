@@ -37,23 +37,23 @@ Vous allez avoir besoin de stocker un tag possédant les champs suivants:
 - id
 - name
 
-Un article peux avoir plusieurs tags, un tag pourras être utilisé par plusieurs articles.
+Un article peux avoir plusieurs tags, un tag pourra être utilisé par plusieurs articles.
 
 Créer les entités et les relier à la base de donnée.
 
 ## Page de création d'article
 
-La page sera accessible sur l'adresse /blogposts en GET.
+La page sera accessible sur l'adresse `/blogposts` en `GET`.
 Elle comprendra un formulaire permettant de soumettre un nouvel article.
 
-Utiliser la même url mais cette fois ci en POST pour gérer la soumission.
+Utiliser la même url mais cette fois ci en `POST` pour gérer la soumission.
 2 controllers différents devront être créé.
 
 Afficher un feedback en cas d'erreur comme de succès.
 
 ## Page d'accueil
 
-La page sera accessible sur l'adresse / en GET et comprendra:
+La page sera accessible sur l'adresse `/` en `GET` et comprendra:
 Une entête centrée avec le nom de votre blog.
 Une liste d'articles centrée avec les titres et sous-titre de chaque article.
 Sous chaque sous-titre, un lien vers l'article.
@@ -61,7 +61,7 @@ Sous chaque sous-titre, un lien vers l'article.
 
 ## Page d'article
 
-La page sera accessible sur l'adresse /{id-de-l-article} en GET et comprendra:
+La page sera accessible sur l'adresse `/{id-de-l-article}` en `GET` et comprendra:
 Une entête centrée avec le nom de votre blog
 Le titre de l'article centré
 Le corps de l'article.
