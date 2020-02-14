@@ -6,9 +6,9 @@ namespace App\Entity;
 
 final class CategorieEnum
 {
-    static public $BURGER = 1;
-    static public $BOISSON = 2;
-    static public $ACCOMPAGNEMENT = 3;
-    static public $SAUCES = 4;
-    static public $DESSERT = 5;
+    const BURGER = 'BURGER';
+    const BOISSON = 'BOISSON';
+    const ACCOMPAGNEMENT = 'ACCOMPAGNEMENT';
+    const SAUCES = 'SAUCES';
+    const DESSERT = 'DESSERT';
 }
