@@ -13,12 +13,12 @@ class Product
     private $price;
     private $cat;
 
-    public function __construct($)
+    public function __construct()
     {
         $this->id = \App\ORM\Util\UUID::v4();
     }
 
-    public function setId(): void
+    public function setId($id)
     {
         $this->id = $id;
     }
