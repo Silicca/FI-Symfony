@@ -9,20 +9,20 @@ use App\Entity\IBuyable;
 
 final class Commande
 {
-    private int $id;
+    private $id;
 
-    private int $status;
+    private $status;
 
-    private int $price;
+    private $price;
 
     private $commande;
 
     public function __construct()
     {
         $this->id = \App\ORM\Util\UUID::v4();
-        $this->status = new StatusEnum()::$COMMANDE;
+        $this->status = StatusEnum::$COMMANDE;
         $this->price = 0;
-        $this->commande = array('' => , );
+        $this->commande = array();
     }
 
     public function getId(): string
@@ -57,20 +57,20 @@ final class Commande
 
     public function add(IBuyable $buyable, int $quantity): void
     {
-        $this->commande.add($buyable => $quantity);
+        $id = $buyable->getId();
+        $command = $this->getCommande();
+        if(in_array($id, $command))
+        {
+            $command[$id] += $quantity;
+        } else
+        {
+            $command[$id] = $quantity;
+        }
     }
 
     public function delete(IBuyable $buyable): void
     {
-        $this->commande.delete($buyable);
+        unset($this->getCommande()[$buyable->getId()]);
     }
 
-    public function totalPrice(): int
-    {
-        int $sum = 0;
-        foreach ($commande as $product => $quantity) {
-            $sum += $product.getPrice() * $quantity;
-        }
-        return $sum;
-    }
 }
