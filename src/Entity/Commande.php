@@ -1,5 +1,11 @@
 <?php
 
+/** 
+*   This file contains the class entity for the commands
+*/
+
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use App\Entity\Product;
@@ -7,8 +13,12 @@ use App\Entity\Menu;
 use App\Entity\StatusEnum;
 use App\Entity\IBuyable;
 
+/** 
+*   Commande class
+*/
 final class Commande
 {
+
     private $id;
 
     private $status;
@@ -55,6 +65,13 @@ final class Commande
         return $this->commande;
     }
 
+    /**
+    * This function add a product or a menu to the command with a specific quantity
+    *
+    * @param IBuyable $buyable The product or menu added to the command
+    * @param int $quantity The quantity of product or menu added to the command
+    * @return void
+    */
     public function add(IBuyable $buyable, int $quantity): void
     {
         $id = $buyable->getId();
@@ -68,6 +85,12 @@ final class Commande
         }
     }
 
+    /**
+    * This function delete a product or a menu of the command.
+    *
+    * @param IBuyable $buyable The product or menu deleted of the command
+    * @return void
+    */
     public function delete(IBuyable $buyable): void
     {
         unset($this->getCommande()[$buyable->getId()]);
