@@ -35,12 +35,17 @@ final class Commande
         $this->commande = array();
     }
 
-    public function getId(): string
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setStatus(string $status): void
+    public function setStatus( $status): void
     {
         $this->status = $status;
     }

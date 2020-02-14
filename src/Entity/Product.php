@@ -18,7 +18,7 @@ class Product
         $this->id = \App\ORM\Util\UUID::v4();
     }
 
-    public function setId(): void
+    public function setId($id): void
     {
         $this->id = $id;
     }
