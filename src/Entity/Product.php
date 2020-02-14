@@ -43,12 +43,18 @@ class Product
         return $this->price;
     }
 
-    public function setCat(CategorieEnum $cat)
+    /**
+     * CategorieEnum
+     */
+    public function setCat(int $cat)
     {
         $this->cat = $cat;
     }
 
-    public function getCat(): CategorieEnum
+    /**
+     * CategorieEnum
+     */
+    public function getCat(): int
     {
         return $this->cat;
     }
