@@ -4,22 +4,23 @@ namespace App\Entity;
 
 use App\Entity\Product;
 use App\Entity\Menu;
-use App\Entity\Status;
+use App\Entity\StatusEnum;
+use App\Entity\IBuyable;
 
 final class Commande
 {
-    private $id;
+    private int $id;
 
-    private $status;
+    private int $status;
 
-    private $price;
+    private int $price;
 
     private $commande;
 
     public function __construct()
     {
         $this->id = \App\ORM\Util\UUID::v4();
-        $this->status = new Status().$COMMANDE;
+        $this->status = new StatusEnum()::$COMMANDE;
         $this->price = 0;
         $this->commande = array('' => , );
     }
@@ -54,24 +55,14 @@ final class Commande
         return $this->commande;
     }
 
-    public function add(Product $product): void
+    public function add(IBuyable $buyable, int $quantity): void
     {
-        $this->commande.add($product => $product.getQuantity());
+        $this->commande.add($buyable => $quantity);
     }
 
-    public function add(Menu $menu): void
+    public function delete(IBuyable $buyable): void
     {
-        $this->commande.add($menu => $menu.getQuantity());
-    }
-
-    public function delete(Product $product): void
-    {
-        $this->commande.delete($product);
-    }
-
-    public function delete(Menu $menu): void
-    {
-        $this->commande.delete($menu);
+        $this->commande.delete($buyable);
     }
 
     public function totalPrice(): int
