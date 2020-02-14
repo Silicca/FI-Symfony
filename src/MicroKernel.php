@@ -28,8 +28,11 @@ final class MicroKernel
 
     private function initRoutes(): void
     {
-        $this->routes->add('route_name', new Route('/', ['_controller' => 'App\Controller\MyController']));
+        $this->routes->add('test', new Route('/test', ['_controller' => 'App\Controller\MyController']));
         // Add your Routes here. documentation here https://symfony.com/doc/4.2/components/routing.html
+
+        $this->routes->add('homepage', new Route('/', ['_controller' => 'App\Controller\HomepageController']));
+        //$this->routes->add('route_name', new Route('/', ['_controller' => 'App\Controller\MyController']));        
     }
 
     private function initServices(): void
