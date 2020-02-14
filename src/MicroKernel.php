@@ -34,9 +34,14 @@ final class MicroKernel
 
     private function initServices(): void
     {
+        // Add your Services here. documentation here https://symfony.com/doc/4.2/components/dependency_injection.html
         $this->containerBuilder->register('debug', 'App\Util\Debugger');
         $this->containerBuilder->register('entity.manager', 'App\ORM\EntityManager');
-        // Add your Services here. documentation here https://symfony.com/doc/4.2/components/dependency_injection.html
+
+        $this->containerBuilder->setParameter('cart-service.entity.manager', 'entity.manager');
+        $this->containerBuilder
+            ->register('cart-service', 'App\Service\CartService')
+            ->addArgument('%cart-service.entity.manager%');
     }
 
     private function resolveController(Request $request)
