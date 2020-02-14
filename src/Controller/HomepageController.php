@@ -29,7 +29,24 @@ class HomepageController
      */
     public function index(Request $request, Container $container)
     {
-        echo 'test';
+        $menuService = $container->get("menu-service");
+        $menuList = $menuService->getMenus();
+
+        $productService = $container->get("product-service");
+        $productList = $productService->getProducts();
+
+        echo '<h2>PRODUCTS</h2><p>';
+        foreach ($productList as $product) {
+            echo "${$product->getName()} ${$product->getPrice()}\n";
+        }
+        echo '</p>';
+
+        echo '<h2>MENUS</h2><p>';
+        foreach ($menuList as $menu) {
+            echo "${$menu->getName()} ${$menu->getPrice()}\n";
+        }
+        echo '</p>';
+
         $content = ob_get_clean();
         return new Response($content);
     }
