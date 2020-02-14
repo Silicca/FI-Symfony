@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-final class Status
+final class StatusEnum
 {
     static public $COMMANDE = 1;
     static public $PREPARATION = 2;
