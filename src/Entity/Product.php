@@ -13,12 +13,17 @@ class Product
     private $price;
     private $cat;
 
-    public function __construct()
+    public function __construct($)
     {
         $this->id = \App\ORM\Util\UUID::v4();
     }
 
-    public function getId(): string
+    public function setId(): void
+    {
+        $this->id = $id;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -46,7 +51,7 @@ class Product
     /**
      * CategorieEnum
      */
-    public function setCat(int $cat)
+    public function setCat(string $cat)
     {
         $this->cat = $cat;
     }
@@ -54,7 +59,7 @@ class Product
     /**
      * CategorieEnum
      */
-    public function getCat(): int
+    public function getCat(): string
     {
         return $this->cat;
     }
